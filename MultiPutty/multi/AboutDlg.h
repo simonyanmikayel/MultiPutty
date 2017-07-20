@@ -16,7 +16,7 @@ public:
 		COMMAND_ID_HANDLER(IDOK, OnCloseCmd)
 		COMMAND_ID_HANDLER(IDCANCEL, OnCloseCmd)
     MESSAGE_HANDLER(WM_DWMNCRENDERINGCHANGED, BringToTop)
-	END_MSG_MAP()
+	END_MSG_MAP() 
   //break; default:  break; } stdlog("message = %x %d %d\n", uMsg, wParam, lParam); return FALSE;  }
 
 	LRESULT OnInitDialog(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam*/, BOOL& /*bHandled*/);
