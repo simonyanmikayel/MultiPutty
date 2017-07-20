@@ -1,6 +1,6 @@
 ﻿// aboutdlg.h : interface of the CAboutDlg class
 //
-///
+// 
 
 #pragma once
 
