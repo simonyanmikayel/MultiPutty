@@ -1,0 +1,701 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Multi">
+      <UniqueIdentifier>{d88eccc6-d289-445a-93cf-6081fea4a4ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Multi\inc">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Multi\res">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Multi\src">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="wtl">
+      <UniqueIdentifier>{3983808b-aaa9-4a7e-aa05-484a87b6851c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Putty">
+      <UniqueIdentifier>{b3fa0448-adbb-4c86-9de2-9ead3503b34d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Putty\inc">
+      <UniqueIdentifier>{4e724b12-999e-449c-8a81-5e240cdc39c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Putty\src">
+      <UniqueIdentifier>{6cfb6bbc-89cb-4b68-b781-02de7c4780b1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="multi\MultiPutty.h">
+      <Filter>Multi\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="multi\stdafx.h">
+      <Filter>Multi\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="multi\version.h">
+      <Filter>Multi\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="multi\MainFrame.h">
+      <Filter>Multi\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="multi\Helpers.h">
+      <Filter>Multi\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="multi\TabView.h">
+      <Filter>Multi\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="multi\DlgRenameTab.h">
+      <Filter>Multi\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="wtl\atlapp.h">
+      <Filter>wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="wtl\atlcrack.h">
+      <Filter>wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="wtl\atlctrls.h">
+      <Filter>wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="wtl\atlctrlw.h">
+      <Filter>wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="wtl\atlctrlx.h">
+      <Filter>wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="wtl\atlddx.h">
+      <Filter>wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="wtl\atldlgs.h">
+      <Filter>wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="wtl\atldwm.h">
+      <Filter>wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="wtl\atlfind.h">
+      <Filter>wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="wtl\atlframe.h">
+      <Filter>wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="wtl\atlgdi.h">
+      <Filter>wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="wtl\atlgdix.h">
+      <Filter>wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="wtl\atlmisc.h">
+      <Filter>wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="wtl\atlprint.h">
+      <Filter>wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="wtl\atlres.h">
+      <Filter>wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="wtl\atlresce.h">
+      <Filter>wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="wtl\atlribbon.h">
+      <Filter>wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="wtl\atlscrl.h">
+      <Filter>wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="wtl\atlsplit.h">
+      <Filter>wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="wtl\atltheme.h">
+      <Filter>wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="wtl\atluser.h">
+      <Filter>wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="wtl\atlwince.h">
+      <Filter>wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="wtl\atlwinx.h">
+      <Filter>wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="wtl\CustomTabCtrl.h">
+      <Filter>wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="wtl\DotNetTabCtrl.h">
+      <Filter>wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="wtl\DynamicDialogTemplate.h">
+      <Filter>wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="wtl\ImageUtil.h">
+      <Filter>wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="wtl\ListViewNoFlicker.h">
+      <Filter>wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="wtl\multisplit.h">
+      <Filter>wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="wtl\PlainTextView.h">
+      <Filter>wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="wtl\SimpleDlgTabCtrls.h">
+      <Filter>wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="wtl\SimpleTabCtrls.h">
+      <Filter>wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="wtl\TabbedDockingWindow.h">
+      <Filter>wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="wtl\TabbedFrame.h">
+      <Filter>wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="wtl\TabbedMDI.h">
+      <Filter>wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="wtl\TabbedMDIMessages.h">
+      <Filter>wtl</Filter>
+    </ClInclude>
+    <ClInclude Include="putty\dialog.h">
+      <Filter>Putty\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="putty\int64.h">
+      <Filter>Putty\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="putty\ldisc.h">
+      <Filter>Putty\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="putty\misc.h">
+      <Filter>Putty\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="putty\network.h">
+      <Filter>Putty\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="putty\pgssapi.h">
+      <Filter>Putty\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="putty\proxy.h">
+      <Filter>Putty\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="putty\psftp.h">
+      <Filter>Putty\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="putty\putty.h">
+      <Filter>Putty\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="putty\puttymem.h">
+      <Filter>Putty\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="putty\puttyps.h">
+      <Filter>Putty\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="putty\rcstuff.h">
+      <Filter>Putty\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="putty\sftp.h">
+      <Filter>Putty\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="putty\ssh.h">
+      <Filter>Putty\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="putty\sshbn.h">
+      <Filter>Putty\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="putty\sshgss.h">
+      <Filter>Putty\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="putty\sshgssc.h">
+      <Filter>Putty\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="putty\storage.h">
+      <Filter>Putty\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="putty\terminal.h">
+      <Filter>Putty\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="putty\tree234.h">
+      <Filter>Putty\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="putty\version.h">
+      <Filter>Putty\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="putty\winhelp.h">
+      <Filter>Putty\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="putty\winsecur.h">
+      <Filter>Putty\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="putty\winstuff.h">
+      <Filter>Putty\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="putty\wintemp.h">
+      <Filter>Putty\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="putty\StdLog.h">
+      <Filter>Multi\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="multi\resource.h">
+      <Filter>Multi\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="putty\search.h">
+      <Filter>Putty\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="multi\KonsoleThread.h">
+      <Filter>Multi\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="multi\WorkerThread.h">
+      <Filter>Multi\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="multi\AboutDlg.h">
+      <Filter>Multi\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="multi\CommandThread.h">
+      <Filter>Multi\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="multi\DlgBase.h">
+      <Filter>Multi\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="multi\StackWalker.h">
+      <Filter>Multi\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="multi\CrashHandler.h">
+      <Filter>Multi\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="putty\wincapi.h">
+      <Filter>Putty\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="putty\pageant.h">
+      <Filter>Putty\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="putty\sshblowf.h">
+      <Filter>Putty\inc</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="multi\MultiPutty.cpp">
+      <Filter>Multi\src</Filter>
+    </ClCompile>
+    <ClCompile Include="multi\stdafx.cpp">
+      <Filter>Multi\src</Filter>
+    </ClCompile>
+    <ClCompile Include="multi\MainFrame.cpp">
+      <Filter>Multi\src</Filter>
+    </ClCompile>
+    <ClCompile Include="multi\Helpers.cpp">
+      <Filter>Multi\src</Filter>
+    </ClCompile>
+    <ClCompile Include="multi\TabView.cpp">
+      <Filter>Multi\src</Filter>
+    </ClCompile>
+    <ClCompile Include="multi\DlgRenameTab.cpp">
+      <Filter>Multi\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\be_all.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\callback.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\cmdline.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\conf.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\config.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\cproxy.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\dialog.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\errsock.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\ldisc.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\ldiscucs.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\logging.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\minibidi.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\misc.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\miscucs.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\pgssapi.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\pinger.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\portfwd.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\proxy.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\raw.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\rlogin.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\sercfg.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\settings.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\sizetip.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\ssh.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\sshaes.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\ssharcf.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\sshblowf.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\sshbn.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\sshcrc.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\sshcrcda.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\sshdes.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\sshdh.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\sshdss.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\sshgssc.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\sshmd5.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\sshpubk.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\sshrand.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\sshrsa.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\sshsh256.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\sshsh512.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\sshsha.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\sshshare.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\sshzlib.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\telnet.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\terminal.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\timing.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\tree234.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\version.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\wcwidth.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\wildcard.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\wincfg.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\winctrls.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\windefs.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\windlg.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\window.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\wingss.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\winhandl.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\winhelp.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\winhsock.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\winjump.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\winmisc.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\winnet.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\winnoise.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\winnpc.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\winnps.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\winpgntc.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\winprint.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\winproxy.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\winsecur.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\winser.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\winshare.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\winstore.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\wintime.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\winucs.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\winutils.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\winx11.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\x11fwd.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\StdLog.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\search.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="multi\KonsoleThread.cpp">
+      <Filter>Multi\src</Filter>
+    </ClCompile>
+    <ClCompile Include="multi\WorkerThread.cpp">
+      <Filter>Multi\src</Filter>
+    </ClCompile>
+    <ClCompile Include="multi\AboutDlg.cpp">
+      <Filter>Multi\src</Filter>
+    </ClCompile>
+    <ClCompile Include="multi\CommandThread.cpp">
+      <Filter>Multi\src</Filter>
+    </ClCompile>
+    <ClCompile Include="multi\StackWalker.cpp">
+      <Filter>Multi\src</Filter>
+    </ClCompile>
+    <ClCompile Include="multi\CrashHandler.cpp">
+      <Filter>Multi\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\sshecc.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\be_misc.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\wincapi.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\sshccp.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="multi\res\Console.ico">
+      <Filter>Multi\res</Filter>
+    </Image>
+    <Image Include="multi\res\fullscreen1_16.bmp">
+      <Filter>Multi\res</Filter>
+    </Image>
+    <Image Include="multi\res\fullscreen1_20.bmp">
+      <Filter>Multi\res</Filter>
+    </Image>
+    <Image Include="multi\res\fullscreen1_24.bmp">
+      <Filter>Multi\res</Filter>
+    </Image>
+    <Image Include="multi\res\fullscreen1_32.bmp">
+      <Filter>Multi\res</Filter>
+    </Image>
+    <Image Include="multi\res\fullscreen2_16.bmp">
+      <Filter>Multi\res</Filter>
+    </Image>
+    <Image Include="multi\res\fullscreen2_20.bmp">
+      <Filter>Multi\res</Filter>
+    </Image>
+    <Image Include="multi\res\fullscreen2_24.bmp">
+      <Filter>Multi\res</Filter>
+    </Image>
+    <Image Include="multi\res\fullscreen2_32.bmp">
+      <Filter>Multi\res</Filter>
+    </Image>
+    <Image Include="multi\res\MultiPutty.ico">
+      <Filter>Multi\res</Filter>
+    </Image>
+    <Image Include="multi\res\search_16.bmp">
+      <Filter>Multi\res</Filter>
+    </Image>
+    <Image Include="multi\res\search_20.bmp">
+      <Filter>Multi\res</Filter>
+    </Image>
+    <Image Include="multi\res\search_24.bmp">
+      <Filter>Multi\res</Filter>
+    </Image>
+    <Image Include="multi\res\search_32.bmp">
+      <Filter>Multi\res</Filter>
+    </Image>
+    <Image Include="multi\res\small.ico">
+      <Filter>Multi\res</Filter>
+    </Image>
+    <Image Include="multi\res\testHighDPI.ico">
+      <Filter>Multi\res</Filter>
+    </Image>
+    <Image Include="multi\res\toolbar_16.bmp">
+      <Filter>Multi\res</Filter>
+    </Image>
+    <Image Include="multi\res\toolbar_20.bmp">
+      <Filter>Multi\res</Filter>
+    </Image>
+    <Image Include="multi\res\toolbar_24.bmp">
+      <Filter>Multi\res</Filter>
+    </Image>
+    <Image Include="multi\res\toolbar_32.bmp">
+      <Filter>Multi\res</Filter>
+    </Image>
+    <Image Include="multi\res\putty.ico">
+      <Filter>Multi\res</Filter>
+    </Image>
+    <Image Include="multi\res\puttycfg.ico">
+      <Filter>Multi\res</Filter>
+    </Image>
+    <Image Include="multi\res\res\toolbar_16.bmp">
+      <Filter>Multi\res</Filter>
+    </Image>
+    <Image Include="multi\res\res\toolbar_20.bmp">
+      <Filter>Multi\res</Filter>
+    </Image>
+    <Image Include="multi\res\res\toolbar_24.bmp">
+      <Filter>Multi\res</Filter>
+    </Image>
+    <Image Include="multi\res\res\toolbar_32.bmp">
+      <Filter>Multi\res</Filter>
+    </Image>
+    <Image Include="multi\res\res\search_16.bmp">
+      <Filter>Multi\res</Filter>
+    </Image>
+    <Image Include="multi\res\res\search_20.bmp">
+      <Filter>Multi\res</Filter>
+    </Image>
+    <Image Include="multi\res\res\search_24.bmp">
+      <Filter>Multi\res</Filter>
+    </Image>
+    <Image Include="multi\res\res\search_32.bmp">
+      <Filter>Multi\res</Filter>
+    </Image>
+    <Image Include="multi\res\res\fullscreen1_16.bmp">
+      <Filter>Multi\res</Filter>
+    </Image>
+    <Image Include="multi\res\res\fullscreen2_16.bmp">
+      <Filter>Multi\res</Filter>
+    </Image>
+    <Image Include="multi\res\res\fullscreen1_20.bmp">
+      <Filter>Multi\res</Filter>
+    </Image>
+    <Image Include="multi\res\res\fullscreen2_20.bmp">
+      <Filter>Multi\res</Filter>
+    </Image>
+    <Image Include="multi\res\res\fullscreen1_24.bmp">
+      <Filter>Multi\res</Filter>
+    </Image>
+    <Image Include="multi\res\res\fullscreen2_24.bmp">
+      <Filter>Multi\res</Filter>
+    </Image>
+    <Image Include="multi\res\res\fullscreen1_32.bmp">
+      <Filter>Multi\res</Filter>
+    </Image>
+    <Image Include="multi\res\res\fullscreen2_32.bmp">
+      <Filter>Multi\res</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="multi\res\SearchBar.rc2">
+      <Filter>Multi\res</Filter>
+    </None>
+    <None Include="multi\res\Toolbar.rc2">
+      <Filter>Multi\res</Filter>
+    </None>
+    <None Include="multi\res\putty.mft">
+      <Filter>Multi\res</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="multi\res\supportedOS.manifest">
+      <Filter>Multi\res</Filter>
+    </Manifest>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="multi\MultiPutty.rc">
+      <Filter>Multi\src</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
