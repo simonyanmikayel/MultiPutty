@@ -27,6 +27,7 @@ typedef struct terminal_tag Terminal;
 #include "network.h"
 #include "misc.h"
 #include "CrashHandler.h"
+#include "tls.h"
 
 /*
  * Fingerprints of the PGP master keys that can be used to establish a trust

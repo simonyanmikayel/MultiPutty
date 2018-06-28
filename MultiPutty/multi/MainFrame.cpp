@@ -89,10 +89,7 @@ LRESULT MainFrame::OnAppAbout(WORD /*wNotifyCode*/, WORD /*wID*/, HWND /*hWndCtl
 }
 
 //////////////////////////////////////////////////////////////////////////////
-LRESULT MainFrame::CreateInitialTabs
-(
-	const CommandLineOptions& commandLineOptions
-)
+LRESULT MainFrame::CreateInitialTabs(const CommandLineOptions& commandLineOptions)
 {
 #ifdef USE_COMMAND_THREAD
   m_pCommandThread = new CommandThread();

@@ -1,22 +1,60 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MultiPutty", "MultiPutty\MultiPutty.vcxproj", "{F9E857D3-1EC4-4358-8941-96AC91156B58}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Profiler", "Profiler\Profiler.vcxproj", "{51670F86-A2D0-42FD-A08A-C762F7709CB5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
 		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
+		Profiler|ARM = Profiler|ARM
+		Profiler|Win32 = Profiler|Win32
+		Profiler|x64 = Profiler|x64
+		Release|ARM = Release|ARM
 		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F9E857D3-1EC4-4358-8941-96AC91156B58}.Debug|ARM.ActiveCfg = Debug|Win32
 		{F9E857D3-1EC4-4358-8941-96AC91156B58}.Debug|Win32.ActiveCfg = Debug|Win32
 		{F9E857D3-1EC4-4358-8941-96AC91156B58}.Debug|Win32.Build.0 = Debug|Win32
+		{F9E857D3-1EC4-4358-8941-96AC91156B58}.Debug|x64.ActiveCfg = Debug|Win32
+		{F9E857D3-1EC4-4358-8941-96AC91156B58}.Profiler|ARM.ActiveCfg = Profiler|Win32
+		{F9E857D3-1EC4-4358-8941-96AC91156B58}.Profiler|Win32.ActiveCfg = Profiler|Win32
+		{F9E857D3-1EC4-4358-8941-96AC91156B58}.Profiler|Win32.Build.0 = Profiler|Win32
+		{F9E857D3-1EC4-4358-8941-96AC91156B58}.Profiler|x64.ActiveCfg = Profiler|Win32
+		{F9E857D3-1EC4-4358-8941-96AC91156B58}.Release|ARM.ActiveCfg = Release|Win32
 		{F9E857D3-1EC4-4358-8941-96AC91156B58}.Release|Win32.ActiveCfg = Release|Win32
 		{F9E857D3-1EC4-4358-8941-96AC91156B58}.Release|Win32.Build.0 = Release|Win32
+		{F9E857D3-1EC4-4358-8941-96AC91156B58}.Release|x64.ActiveCfg = Release|Win32
+		{51670F86-A2D0-42FD-A08A-C762F7709CB5}.Debug|ARM.ActiveCfg = Debug|ARM
+		{51670F86-A2D0-42FD-A08A-C762F7709CB5}.Debug|ARM.Build.0 = Debug|ARM
+		{51670F86-A2D0-42FD-A08A-C762F7709CB5}.Debug|Win32.ActiveCfg = Debug|Win32
+		{51670F86-A2D0-42FD-A08A-C762F7709CB5}.Debug|Win32.Build.0 = Debug|Win32
+		{51670F86-A2D0-42FD-A08A-C762F7709CB5}.Debug|x64.ActiveCfg = Debug|x64
+		{51670F86-A2D0-42FD-A08A-C762F7709CB5}.Debug|x64.Build.0 = Debug|x64
+		{51670F86-A2D0-42FD-A08A-C762F7709CB5}.Profiler|ARM.ActiveCfg = Profiler|ARM
+		{51670F86-A2D0-42FD-A08A-C762F7709CB5}.Profiler|ARM.Build.0 = Profiler|ARM
+		{51670F86-A2D0-42FD-A08A-C762F7709CB5}.Profiler|Win32.ActiveCfg = Profiler|Win32
+		{51670F86-A2D0-42FD-A08A-C762F7709CB5}.Profiler|Win32.Build.0 = Profiler|Win32
+		{51670F86-A2D0-42FD-A08A-C762F7709CB5}.Profiler|x64.ActiveCfg = Profiler|x64
+		{51670F86-A2D0-42FD-A08A-C762F7709CB5}.Profiler|x64.Build.0 = Profiler|x64
+		{51670F86-A2D0-42FD-A08A-C762F7709CB5}.Release|ARM.ActiveCfg = Release|ARM
+		{51670F86-A2D0-42FD-A08A-C762F7709CB5}.Release|ARM.Build.0 = Release|ARM
+		{51670F86-A2D0-42FD-A08A-C762F7709CB5}.Release|Win32.ActiveCfg = Release|Win32
+		{51670F86-A2D0-42FD-A08A-C762F7709CB5}.Release|Win32.Build.0 = Release|Win32
+		{51670F86-A2D0-42FD-A08A-C762F7709CB5}.Release|x64.ActiveCfg = Release|x64
+		{51670F86-A2D0-42FD-A08A-C762F7709CB5}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2AB8C830-0F13-4628-872A-EF04886D1B64}
 	EndGlobalSection
 EndGlobal

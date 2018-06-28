@@ -273,6 +273,10 @@
     <ClInclude Include="putty\sshblowf.h">
       <Filter>Putty\inc</Filter>
     </ClInclude>
+    <ClInclude Include="TODO.txt" />
+    <ClInclude Include="putty\tls.h">
+      <Filter>Putty\inc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="multi\MultiPutty.cpp">
@@ -558,6 +562,9 @@
       <Filter>Putty\src</Filter>
     </ClCompile>
     <ClCompile Include="putty\sshccp.c">
+      <Filter>Putty\src</Filter>
+    </ClCompile>
+    <ClCompile Include="putty\tls.c">
       <Filter>Putty\src</Filter>
     </ClCompile>
   </ItemGroup>
