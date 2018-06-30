@@ -110,19 +110,15 @@ LRESULT TabView::OnPositionChanging(UINT /*uMsg*/, WPARAM wParam, LPARAM lParam,
 
 LRESULT TabView::OnPaint(UINT /*uMsg*/, WPARAM wParam, LPARAM /*lParam*/, BOOL& /*bHandled*/)
 {
+	PAINTSTRUCT ps;
+	HDC hdc = BeginPaint(&ps);
+	
     if (!m_hwndConsoleView || !::IsWindow(m_hwndConsoleView))
     {
-        if (wParam != NULL)
-        {
-            DoPaint((HDC)wParam);
-        }
-        else
-        {
-            CPaintDC dc(m_hWnd);
-            DoPaint(dc.m_hDC);
-        }
-    }
-    return 0;
+		DoPaint(hdc);
+	}
+	EndPaint(&ps);
+	return 0;
 }
 
 void TabView::DoPaint(HDC hdc)

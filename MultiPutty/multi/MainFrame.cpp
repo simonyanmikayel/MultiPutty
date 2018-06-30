@@ -6,15 +6,14 @@
 
 //we are not destributing udp commands
 // note: currently we are destributing debug build due to issue with menu highlitenug and "tab rename dialog" showing issue
-#ifdef _DEBUG
-#define USE_COMMAND_THREAD
-#endif
 
 //////////////////////////////////////////////////////////////////////////////
 WNDPROC oldEditProc;
 LRESULT CALLBACK subEditProc(HWND wnd, UINT msg, WPARAM wParam, LPARAM lParam);
 //////////////////////////////////////////////////////////////////////////////
-
+#ifdef _DEBUG
+#define USE_COMMAND_THREAD
+#endif
 
 MainFrame::MainFrame
 (
@@ -45,12 +44,12 @@ MainFrame::MainFrame
 BOOL MainFrame::PreTranslateMessage(MSG* pMsg)
 {
   if (CTabbedFrameImpl<MainFrame>::PreTranslateMessage(pMsg)) return TRUE;
+#ifdef USE_COMMAND_THREAD
   if (pMsg->message == m_uUdpCommand) { OnUdpCommand(pMsg->wParam, pMsg->lParam);  return TRUE; }
-
+#endif
 
   return FALSE;
 }
-
 //////////////////////////////////////////////////////////////////////////////
 
 

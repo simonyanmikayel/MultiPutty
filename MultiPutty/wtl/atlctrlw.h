@@ -43,6 +43,7 @@
 
 // Note: Define _WTL_CMDBAR_VISTA_STD_MENUBAR to use Vista standard menubar look with Vista menus
 
+//#define _NO_MSG_HOOK
 
 ///////////////////////////////////////////////////////////////////////////////
 // Classes in this file:
@@ -145,8 +146,9 @@ public:
 	};
 
 	typedef ATL::CSimpleMap<DWORD, _MsgHookData*>   CMsgHookMap;
+#ifndef _NO_MSG_HOOK
 	static CMsgHookMap* s_pmapMsgHook;
-
+#endif
 	static HHOOK s_hCreateHook;
 	static bool s_bW2K;  // For animation flag
 	static CCommandBarCtrlBase* s_pCurrentBar;
@@ -188,8 +190,9 @@ public:
 
 	bool IsCommandBarBase() const { return m_dwMagic == 1314; }
 };
-
+#ifndef _NO_MSG_HOOK
 __declspec(selectany) CCommandBarCtrlBase::CMsgHookMap* CCommandBarCtrlBase::s_pmapMsgHook = NULL;
+#endif
 __declspec(selectany) HHOOK CCommandBarCtrlBase::s_hCreateHook = NULL;
 __declspec(selectany) CCommandBarCtrlBase* CCommandBarCtrlBase::s_pCurrentBar = NULL;
 __declspec(selectany) bool CCommandBarCtrlBase::s_bW2K = false;
@@ -992,7 +995,7 @@ public:
 			ATLASSERT(FALSE);
 			return -1;
 		}
-
+#ifndef _NO_MSG_HOOK
 		if(s_pmapMsgHook == NULL)
 		{
 			ATLTRY(s_pmapMsgHook = new CMsgHookMap);
@@ -1023,6 +1026,7 @@ public:
 				(pData->dwUsage)++;
 			}
 		}
+#endif
 		lock.Unlock();
 
 		// Get layout
@@ -1062,6 +1066,7 @@ public:
 			return lRet;
 		}
 
+#ifndef _NO_MSG_HOOK
 		if(s_pmapMsgHook != NULL)
 		{
 			DWORD dwThreadID = ::GetCurrentThreadId();
@@ -1086,7 +1091,7 @@ public:
 				}
 			}
 		}
-
+#endif
 		lock.Unlock();
 
 		return lRet;
@@ -2688,6 +2693,7 @@ public:
 		return ::CallNextHookEx(s_hCreateHook, nCode, wParam, lParam);
 	}
 
+#ifndef _NO_MSG_HOOK
 	static LRESULT CALLBACK MessageHookProc(int nCode, WPARAM wParam, LPARAM lParam)
 	{
 		LPMSG pMsg = (LPMSG)lParam;
@@ -2728,7 +2734,7 @@ public:
 		}
 		return lRet;
 	}
-
+#endif
 // Implementation
 	void DoPopupMenu(int nIndex, bool bAnimate)
 	{

@@ -27,7 +27,6 @@ typedef map<HWND, std::shared_ptr<TabView> >	TabViewMap;
 
 //////////////////////////////////////////////////////////////////////////////
 
-
 #define DEFAULT_CONSOLE_COMMAND _T("bash")
 
 struct ConsoleOptions
@@ -90,7 +89,6 @@ public:
         (
         LPCTSTR lpstrCmdLine
         );
-
     virtual BOOL PreTranslateMessage(MSG* pMsg);
     virtual BOOL OnIdle();
 
