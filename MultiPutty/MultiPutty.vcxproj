@@ -119,7 +119,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
-      <AdditionalDependencies>c:\temp_vs\lib\Profiler.lib;winmm.lib;Imm32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>c:\temp_vs\bin\ProfilerDesktop_$(Platform)_Debug.lib;winmm.lib;Imm32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ResourceCompile>
       <AdditionalIncludeDirectories>$(ProjectDir)multi;$(ProjectDir)wtl</AdditionalIncludeDirectories>
