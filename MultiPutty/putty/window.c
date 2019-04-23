@@ -2280,6 +2280,7 @@ void nc_paint()
 
     DeleteObject(nc_color);
     DeleteObject(term_color);
+	ReleaseDC(hwnd, hdc);
 }
 
 static LRESULT CALLBACK WndProc(HWND hwnd, UINT message,
