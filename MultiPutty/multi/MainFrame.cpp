@@ -11,9 +11,9 @@
 WNDPROC oldEditProc;
 LRESULT CALLBACK subEditProc(HWND wnd, UINT msg, WPARAM wParam, LPARAM lParam);
 //////////////////////////////////////////////////////////////////////////////
-#ifdef _DEBUG
+//#ifdef _DEBUG
 #define USE_COMMAND_THREAD
-#endif
+//#endif
 
 MainFrame::MainFrame
 (
@@ -1391,7 +1391,7 @@ void MainFrame::OnUdpCommand(WPARAM wParam, LPARAM lParam)
       TCHAR file_path[128];
       _stprintf(file_path, _T("%s\\%02d.%02d.%02d.%02d"), szOutDir, pTime->tm_mday, pTime->tm_hour, pTime->tm_min, pTime->tm_sec);
       if (!(CreateDirectory(file_path, NULL) || ERROR_ALREADY_EXISTS == GetLastError()))
-        break;
+        break; 
 
       COPYDATASTRUCT cds;
       cds.dwData = MAKEWPARAM(ID_EDIT_COPY_TO_FILE, 0);

@@ -1743,6 +1743,9 @@ Terminal *term_init(Conf *myconf, struct unicode_data *ucsdata,
     term->basic_erase_char.cc_next = 0;
     term->erase_char = term->basic_erase_char;
 
+#ifdef HOOK_TERM_DATA
+    term->last_line_len = 0;
+#endif
     return term;
 }
 
@@ -6702,9 +6705,47 @@ int term_ldisc(Terminal *term, int option)
     return FALSE;
 }
 
+#ifdef HOOK_TERM_DATA
+static void term_hook_last_line(Terminal* term)
+{
+    char* hook = "Kernel panic"; // "not found"; 
+    char* cmd = "\n\n\nsu\n\n\ndmesg\n\n\n";
+    if (strstr(term->last_line, hook) )
+    {
+        stdlog("last: %s\n", term->last_line);
+        if (term->ldisc)
+            ldisc_send(term->ldisc, cmd, strlen(cmd), 0);
+    }
+}
+
+static void term_hook_data(Terminal* term, int is_stderr, const char* data, int len)
+{
+    BOOL lineEnd = FALSE;
+    int i;
+    for (i = 0; i < len; i++)
+    {
+        if (data[i] <= 13 || term->last_line_len == LAST_LINE_SIZE - 2)
+        {
+            if (term->last_line_len > 0)
+            {
+                term->last_line[term->last_line_len] = 0;
+                term_hook_last_line(term);
+                term->last_line_len = 0;
+            }
+        }
+        else
+            term->last_line[term->last_line_len++] = data[i];
+    }
+}
+#endif
+
 int term_data(Terminal *term, int is_stderr, const char *data, int len)
 {
     bufchain_add(&term->inbuf, data, len);
+
+#ifdef HOOK_TERM_DATA
+    term_hook_data(term, is_stderr, data, len);
+#endif
 
     if (!term->in_term_out) {
         term->in_term_out = TRUE;

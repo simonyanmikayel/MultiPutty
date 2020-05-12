@@ -11,6 +11,9 @@
 
 #include "tree234.h"
 
+//#define HOOK_TERM_DATA
+#define LAST_LINE_SIZE 1024
+
 struct beeptime {
     struct beeptime *next;
     unsigned long ticks;
@@ -324,6 +327,11 @@ struct terminal_tag {
     int scroll_on_disp;
     int scroll_on_key;
     int xterm_256_colour;
+
+#ifdef HOOK_TERM_DATA
+    char last_line[LAST_LINE_SIZE];
+    int last_line_len;
+#endif
 };
 
 #define in_utf(term) ((term)->utf || (term)->ucsdata->line_codepage==CP_UTF8)
