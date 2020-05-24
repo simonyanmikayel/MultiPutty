@@ -6752,7 +6752,7 @@ void term_redirect_to_file_new_line(Terminal* term)
 {
     SYSTEMTIME t;
     GetLocalTime(&t);
-    fprintf(term->redirect_file_fp, "<at: %d:%d:%d.%d>", t.wHour, t.wMinute, t.wSecond, t.wMilliseconds);
+    fprintf(term->redirect_file_fp, " <at %d:%d:%d.%d>\n", t.wHour, t.wMinute, t.wSecond, t.wMilliseconds);
 }
 
 void term_redirect_to_file(Terminal* term, int is_stderr, const char* data, int len)
