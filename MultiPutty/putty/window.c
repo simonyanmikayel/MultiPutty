@@ -2399,7 +2399,16 @@ static LRESULT CALLBACK WndProc(HWND hwnd, UINT message,
         case  ID_EDIT_PASTE:
             request_paste(0);
           break;
-        case ID_EDIT_CLEAR_ALL:
+		case ID_EDIT_REDIRECT_TO_FILE:
+		{
+			if (reconfiguring)
+				break;
+			reconfiguring = TRUE;
+			set_redirect_to_file(hwnd, term);
+			reconfiguring = FALSE;
+		}
+			break;
+		case ID_EDIT_CLEAR_ALL:
         case ID_EDIT_CLEAR_SCROLLBACK:
         case ID_EDIT_RESET_TERMINAL:
             if (lParam != ID_EDIT_CLEAR_SCROLLBACK) {

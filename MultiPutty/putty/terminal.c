@@ -1742,6 +1742,8 @@ Terminal *term_init(Conf *myconf, struct unicode_data *ucsdata,
     term->basic_erase_char.attr = ATTR_DEFAULT;
     term->basic_erase_char.cc_next = 0;
     term->erase_char = term->basic_erase_char;
+    term->redirect_file_path = 0;
+    term->redirect_file_fp = 0;
 
 #ifdef HOOK_TERM_DATA
     term->last_line_len = 0;
@@ -1799,6 +1801,13 @@ void term_free(Terminal *term)
     expire_timer_context(term);
 
     conf_free(term->conf);
+
+    if (term->redirect_file_path)
+        free(term->redirect_file_path);
+    term->redirect_file_path = 0;
+    if (term->redirect_file_fp)
+        fclose(term->redirect_file_fp);
+    term->redirect_file_fp = 0;
 
     sfree(term);
 }
@@ -6739,6 +6748,28 @@ static void term_hook_data(Terminal* term, int is_stderr, const char* data, int 
 }
 #endif
 
+void term_redirect_to_file_new_line(Terminal* term)
+{
+    SYSTEMTIME t;
+    GetLocalTime(&t);
+    fprintf(term->redirect_file_fp, "<at: %d:%d:%d.%d>", t.wHour, t.wMinute, t.wSecond, t.wMilliseconds);
+}
+
+void term_redirect_to_file(Terminal* term, int is_stderr, const char* data, int len)
+{
+    int i, i0;
+    for (i = 0, i0 = 0; i < len; i++)
+    {
+        if (data[i] == 13)
+        {
+            fwrite(data + i0, 1, i - i0, term->redirect_file_fp);
+            term_redirect_to_file_new_line(term);
+            i0 = i;
+        }
+    }
+    fwrite(data + i0, 1, i - i0, term->redirect_file_fp);
+}
+
 int term_data(Terminal *term, int is_stderr, const char *data, int len)
 {
     bufchain_add(&term->inbuf, data, len);
@@ -6755,6 +6786,8 @@ int term_data(Terminal *term, int is_stderr, const char *data, int len)
         * because the user will want the screen to hold still to
         * be selected.
         */
+        if (term->redirect_file_fp)
+            term_redirect_to_file(term, is_stderr, data, len);
         if (term->selstate != DRAGGING)
             term_out(term);
         term->in_term_out = FALSE;

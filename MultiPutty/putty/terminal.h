@@ -327,6 +327,8 @@ struct terminal_tag {
     int scroll_on_disp;
     int scroll_on_key;
     int xterm_256_colour;
+    char* redirect_file_path;
+    FILE* redirect_file_fp;
 
 #ifdef HOOK_TERM_DATA
     char last_line[LAST_LINE_SIZE];

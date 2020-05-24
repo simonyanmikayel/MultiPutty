@@ -19,6 +19,7 @@
 #include <commctrl.h>
 #include <commdlg.h>
 #include <shellapi.h>
+#include "terminal.h"
 
 #ifdef MSVC4
 #define TVINSERTSTRUCT  TV_INSERTSTRUCT
@@ -44,6 +45,7 @@ static struct dlgparam dp;
 
 static char **events = NULL;
 static int nevents = 0, negsize = 0;
+static Terminal* dlg_term = 0;
 
 extern Conf *conf;		       /* defined in window.c */
 
@@ -707,6 +709,52 @@ int do_config(void)
     dp_cleanup(&dp);
 
     return ret;
+}
+
+INT_PTR CALLBACK redirect_to_file_proc(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
+{
+	switch (message)
+	{
+	case WM_INITDIALOG:
+	{
+		if (dlg_term->redirect_file_path)
+		{
+			HANDLE hWndEdit = GetDlgItem(hDlg, IDC_EDIT_REDIRECT_FILE_PATH);
+			SetWindowText(hWndEdit, dlg_term->redirect_file_path);
+		}
+	}
+		return (INT_PTR)TRUE;
+
+	case WM_COMMAND:
+		if (LOWORD(wParam) == IDOK || LOWORD(wParam) == IDCANCEL)
+		{
+			if (LOWORD(wParam) == IDOK)
+			{
+				char buff[1024];
+				HANDLE hWndEdit = GetDlgItem(hDlg, IDC_EDIT_REDIRECT_FILE_PATH);
+				GetWindowText(hWndEdit, buff, 1023);
+				if (dlg_term->redirect_file_path)
+					free(dlg_term->redirect_file_path);
+				if (dlg_term->redirect_file_fp)
+					fclose(dlg_term->redirect_file_fp);
+				dlg_term->redirect_file_fp = 0;
+				dlg_term->redirect_file_path = strdup(buff);
+				if (buff[0])
+					dlg_term->redirect_file_fp = fopen(dlg_term->redirect_file_path, "w");
+			}
+			EndDialog(hDlg, LOWORD(wParam));
+			return (INT_PTR)TRUE;
+		}
+		break;
+	}
+	return (INT_PTR)FALSE;
+}
+
+int set_redirect_to_file(HWND hwnd, Terminal* term)
+{
+	dlg_term = term;
+	DialogBox(hinst, MAKEINTRESOURCE(IDD_REDIRECT_TO_FILE), hwnd, redirect_to_file_proc);
+	return 0;
 }
 
 int do_reconfig(HWND hwnd, int protcfginfo)
