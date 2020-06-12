@@ -6182,7 +6182,7 @@ void fatal_error(const char *error)
 	  gFatalError = TRUE;
 	  int cb = strlen(error) + 1;
 	  char* buf = malloc(cb + 100);
-	  sprintf(buf, "\n\n%s\nPress 'Enter' to reopen.", error);
+	  sprintf(buf, "\n\n\x1B[31;1m %s\n Press 'Enter' to reopen. \x1B[0m", error);
 	  print_text(buf);
 	  free(buf);
   }
