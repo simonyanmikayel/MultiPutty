@@ -1,6 +1,7 @@
 #ifndef PUTTY_PUTTY_H
 #define PUTTY_PUTTY_H
 
+#include "StdLog.h"
 #include <stddef.h>		       /* for wchar_t */
 
 /*
@@ -1573,6 +1574,7 @@ void request_callback_notifications(toplevel_callback_notify_fn_t notify,
 void print_text(const char *data);
 void print_buf(const char *data, int len);
 void fatal_error(const char *error);
+void prpogate_fatal_error();
 LRESULT term_find_text(Terminal *term, wchar_t *text, WORD cmd, WORD options);
 void term_copyall(Terminal *, BOOL with_timestamp, char* szFile);
 void term_copy(Terminal *, BOOL with_timestamp);

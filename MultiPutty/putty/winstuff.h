@@ -39,6 +39,7 @@ GLOBAL HWND hwndHostMain;	/* the hote main farme window */
 GLOBAL HWND logbox;
 GLOBAL char* g_cmdline;
 GLOBAL FILE *fp_putty_mem_log;
+GLOBAL BOOL gFatalError;
 
 
 struct Filename {

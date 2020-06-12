@@ -3379,6 +3379,11 @@ static LRESULT CALLBACK WndProc(HWND hwnd, UINT message,
 	 * KEYDOWN, and call the Win32 translator functions so that
 	 * we get the translations under _our_ control.
 	 */
+	if (gFatalError && message == WM_KEYDOWN && wParam == 13)
+	{
+		prpogate_fatal_error();
+	}
+	else 
 	{
 	    unsigned char buf[20];
 	    int len;
@@ -6169,17 +6174,17 @@ char* get_multi_session(int index)
   return conf_get_str_str_opt(conf, CONF_multiputty, str_key);
 }
 
+gFatalError = FALSE; 
 void fatal_error(const char *error)
 {
   if (hwndHost)
   {
-    COPYDATASTRUCT cds;
-    cds.dwData = DATA_PUTTY_ERROR;
-    cds.cbData = strlen(error) + 1;
-    cds.lpData = (void*)error;
-    SendMessageTimeout(hwndHost, WM_COPYDATA, (WPARAM)(HWND)hwnd, (LPARAM)(LPVOID)&cds, SMTO_BLOCK | SMTO_NOTIMEOUTIFNOTHUNG | SMTO_ERRORONEXIT, 1000, NULL);
-    //print_text(error);
-    cleanup_exit(1);
+	  gFatalError = TRUE;
+	  int cb = strlen(error) + 1;
+	  char* buf = malloc(cb + 100);
+	  sprintf(buf, "\n\n%s\nPress 'Enter' to reopen.", error);
+	  print_text(buf);
+	  free(buf);
   }
 
   //if (conf_get_int(conf, CONF_close_on_exit) == FORCE_ON)
@@ -6187,6 +6192,19 @@ void fatal_error(const char *error)
   //else {
   //  queue_toplevel_callback(close_session, NULL);
   //}
+}
+
+void prpogate_fatal_error()
+{
+	if (hwndHost)
+	{
+		COPYDATASTRUCT cds;
+		cds.dwData = DATA_PUTTY_ERROR;
+		cds.cbData = 1;
+		cds.lpData = "";
+		SendMessageTimeout(hwndHost, WM_COPYDATA, (WPARAM)(HWND)hwnd, (LPARAM)(LPVOID)&cds, SMTO_BLOCK | SMTO_NOTIMEOUTIFNOTHUNG | SMTO_ERRORONEXIT, 1000, NULL);
+	}
+	cleanup_exit(1);
 }
 
 void print_text(const char *data)

@@ -11,14 +11,14 @@ CommandThread::CommandThread()
   //Create a socket
   if ((s = socket(AF_INET, SOCK_DGRAM, 0)) == INVALID_SOCKET)
   {
-    stdlog("Could not create socket : %d", WSAGetLastError());
+    //stdlog("Could not create socket : %d", WSAGetLastError());
     goto err;
   }
 
   int opt = 1;
   if (setsockopt(s, SOL_SOCKET, SO_REUSEADDR, (const char *)&opt, sizeof(opt)) < 0)
   {
-    stdlog("setsockopt failed\n");
+    //stdlog("setsockopt failed\n");
     goto err;
   }
 
@@ -31,7 +31,7 @@ CommandThread::CommandThread()
   //Bind
   if (bind(s, (struct sockaddr *)&server, sizeof(server)) == SOCKET_ERROR)
   {
-    stdlog("Bind failed with error code : %d", WSAGetLastError());
+    //stdlog("Bind failed with error code : %d", WSAGetLastError());
     goto err;
   }
   return;
@@ -67,8 +67,10 @@ void CommandThread::Work(LPVOID pWorkParam)
     //try to receive some data, this is a blocking call
     if ((recv_len = recvfrom(s, buf, BUFLEN, 0, (struct sockaddr *) &si_other, &slen)) == SOCKET_ERROR)
     {
-      if (s != INVALID_SOCKET)
-        stdlog("recvfrom() failed with error code : %d", WSAGetLastError());
+      if (s = INVALID_SOCKET)
+      {
+          //stdlog("recvfrom() failed with error code : %d", WSAGetLastError());
+      }
       break;
     }
 

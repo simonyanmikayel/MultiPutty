@@ -57,7 +57,6 @@ public:
 private:
 	ConsoleOptions      m_consoleOptions;
     DWORD m_puttyId;
-    CString m_strError;
     KonsoleThread* m_pKonsoleThread;
     bool m_isActive;
 };

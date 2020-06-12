@@ -81,7 +81,6 @@ LRESULT TabView::OnCreate(LPCREATESTRUCT lpcs)
 
 void TabView::CreateConsole()
 {
-  m_strError = _T("");
   m_hwndConsoleView = NULL;
 #ifdef UNICODE
   char* cmd = w2m(m_consoleOptions.strInitialCmd.c_str());
@@ -127,9 +126,9 @@ void TabView::DoPaint(HDC hdc)
         RECT rect = { 0 };
         GetClientRect(&rect);
         dc.FillRect(&rect, COLOR_MENUTEXT);//COLOR_MENUTEXT COLOR_MENU
-        if (!m_strError.IsEmpty() || (m_hwndConsoleView && !::IsWindow(m_hwndConsoleView)))
+        if (m_hwndConsoleView && !::IsWindow(m_hwndConsoleView))
         {
-          CString strError = m_strError + _T("\n\nPress 'Enter' to reopen.");
+          CString strError = _T("\nTerminal closed.\n\nPress 'Enter' to reopen.\n");
           rect.left += 10;
           rect.top += 10;
           ::DrawText(hdc, strError, strError.GetLength(), &rect, DT_WORDBREAK);
@@ -247,9 +246,7 @@ LRESULT TabView::OnCopyData(UINT /*uMsg*/, WPARAM wParam, LPARAM lParam, BOOL& /
   switch (pCDS->dwData)
   {
   case DATA_PUTTY_ERROR:
-    m_strError += (char*)pCDS->lpData;
-    m_hwndConsoleView = NULL;
-    Invalidate();
+      CreateConsole();
     return 1;
   }
   return 0;

@@ -6721,7 +6721,7 @@ static void term_hook_last_line(Terminal* term)
     char* cmd = "\n\n\nsu\n\n\ndmesg\n\n\n";
     if (strstr(term->last_line, hook) )
     {
-        stdlog("last: %s\n", term->last_line);
+        //stdlog("last: %s\n", term->last_line);
         if (term->ldisc)
             ldisc_send(term->ldisc, cmd, strlen(cmd), 0);
     }
