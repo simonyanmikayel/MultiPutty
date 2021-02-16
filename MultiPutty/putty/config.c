@@ -603,8 +603,8 @@ static void sshbug_handler(union control *ctrl, void *dlg,
 }
 
 struct sessionsaver_data {
-    union control *editbox, *listbox, *loadbutton, *savebutton, *shortcutbutton, *delbutton;
-    union control *okbutton, *cancelbutton;
+    union control *editbox, *listbox, *loadbutton, *shortcutbutton, *delbutton;
+    union control* savebutton, *okbutton, *cancelbutton;
     struct sesslist sesslist;
     int midsession;
     char *savedsession;     /* the current contents of ssd->editbox */
@@ -701,7 +701,7 @@ static void sessionsaver_handler(union control *ctrl, void *dlg,
             set_config_name(ssd->savedsession);
 		    dlg_end(dlg, 1);       /* it's all over, and succeeded */
 	    }
-  }  else if (ctrl == ssd->savebutton || ctrl == ssd->shortcutbutton) {
+  }  else if (ctrl == ssd->shortcutbutton) {
 	    int isdef = !strcmp(ssd->savedsession, "Default Settings");
 	    if (!ssd->savedsession[0]) {
 		int i = dlg_listbox_index(ssd->listbox, dlg);
@@ -715,13 +715,7 @@ static void sessionsaver_handler(union control *ctrl, void *dlg,
                                            ssd->sesslist.sessions[i]);
 	    }
             {
-              if (ctrl == ssd->savebutton) {
-                char *errmsg = save_settings(ssd->savedsession, conf);
-                if (errmsg) {
-                  dlg_error_msg(dlg, errmsg);
-                  sfree(errmsg);
-                }
-              } else if (ctrl == ssd->shortcutbutton) {
+              if (ctrl == ssd->shortcutbutton) {
                 char *errmsg = create_shortcut(ssd->savedsession);
                 if (errmsg) {
                   dlg_error_msg(dlg, errmsg);
@@ -743,7 +737,7 @@ static void sessionsaver_handler(union control *ctrl, void *dlg,
 		get_sesslist(&ssd->sesslist, TRUE);
 		dlg_refresh(ssd->listbox, dlg);
 	    }
-	} else if (ctrl == ssd->okbutton) {
+	} else if (ctrl == ssd->savebutton || ctrl == ssd->okbutton) {
             if (ssd->midsession) {
                 /* In a mid-session Change Settings, Apply is always OK. */
 		dlg_end(dlg, 1);
@@ -768,8 +762,17 @@ static void sessionsaver_handler(union control *ctrl, void *dlg,
 		/* If at this point we have a valid session, go! */
 		if (mbl && conf_launchable(conf2)) {
 		    conf_copy_into(conf, conf2);
-            set_config_name(ssd->savedsession);
-		    dlg_end(dlg, 1);
+			if (ctrl == ssd->savebutton) {
+				char* errmsg = save_settings(ssd->savedsession, conf);
+				if (errmsg) {
+					dlg_error_msg(dlg, errmsg);
+					sfree(errmsg);
+				}
+			}
+			else {
+				set_config_name(ssd->savedsession);
+				dlg_end(dlg, 1);
+			}
 		} else
 		    dlg_beep(dlg);
 
@@ -782,8 +785,17 @@ static void sessionsaver_handler(union control *ctrl, void *dlg,
 	     * session, get going.
 	     */
 	    if (conf_launchable(conf)) {
-            set_config_name(ssd->savedsession);
-		    dlg_end(dlg, 1);
+			if (ctrl == ssd->savebutton) {
+				char* errmsg = save_settings(ssd->savedsession, conf);
+				if (errmsg) {
+					dlg_error_msg(dlg, errmsg);
+					sfree(errmsg);
+				}
+			}
+			else {
+				set_config_name(ssd->savedsession);
+				dlg_end(dlg, 1);
+			}
 	    } else
 		dlg_beep(dlg);
 	} else if (ctrl == ssd->cancelbutton) {
@@ -1508,7 +1520,12 @@ void setup_config_box(struct controlbox *b, int midsession,
      */
     s = ctrl_getset(b, "", "", "");
     ctrl_columns(s, 5, 20, 20, 20, 20, 20);
-    ssd->okbutton = ctrl_pushbutton(s,
+	if (!midsession) {
+		ssd->savebutton = ctrl_pushbutton(s, "Save", '\0', HELPCTX(no_help),
+			sessionsaver_handler, P(ssd));
+		ssd->savebutton->generic.column = 2;
+	}
+	ssd->okbutton = ctrl_pushbutton(s,
 				    (midsession ? "Apply" : "Open"),
 				    (char)(midsession ? 'a' : 'o'),
 				    HELPCTX(no_help),
@@ -1519,7 +1536,7 @@ void setup_config_box(struct controlbox *b, int midsession,
 					sessionsaver_handler, P(ssd));
     ssd->cancelbutton->button.iscancel = TRUE;
     ssd->cancelbutton->generic.column = 4;
-    /* We carefully don't close the 5-column part, so that platform-
+	/* We carefully don't close the 5-column part, so that platform-
      * specific add-ons can put extra buttons alongside Open and Cancel. */
 
     /*
@@ -1602,10 +1619,12 @@ void setup_config_box(struct controlbox *b, int midsession,
 	ssd->loadbutton = NULL;
     }
     /* "Save" button is permitted mid-session. */
+	/*
     ssd->savebutton = ctrl_pushbutton(s, "Save", 'v',
 				      HELPCTX(session_saved),
 				      sessionsaver_handler, P(ssd));
     ssd->savebutton->generic.column = 1;
+	*/
     /* "Shortcut" button is permitted mid-session. */
     ssd->shortcutbutton = ctrl_pushbutton(s, "Shortcut", 'u',
       HELPCTX(session_saved),
