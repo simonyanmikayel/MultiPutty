@@ -206,7 +206,7 @@ LRESULT MainFrame::OnCreate(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam*/,
   tbi.fsState = 0;
   // BTNS_SHOWTEXT will allow the button size to be altered
   tbi.fsStyle = BTNS_SHOWTEXT;
-  tbi.cx = static_cast<WORD>(35 * ::GetSystemMetrics(SM_CXSMICON));
+  tbi.cx = static_cast<WORD>(15 * ::GetSystemMetrics(SM_CXSMICON));
 
   m_searchbar.SetButtonInfo(ID_SEARCH_COMBO, &tbi);
 
